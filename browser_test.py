@@ -63,6 +63,6 @@ def choosebrowser(browser):
         driver = webdriver.Ie(executable_path="C:\\folded\\browsdrv\\ied\\IEDriverServer32.exe", capabilities=capabilities)
         return driver
     else:
-        print("Wrong value. Please enter one of the following: chrome, firefox, opera, edge, ie")
+        return("Wrong value. Please enter one of the following: chrome, firefox, opera, edge, ie")
 
     
