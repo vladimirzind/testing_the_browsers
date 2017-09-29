@@ -65,4 +65,32 @@ def choosebrowser(browser):
     else:
         print("Wrong value. Please enter one of the following: chrome, firefox, opera, edge, ie")
 
-    
+        
+        
+'''
+====================================
+open chosen browser,
+go to google,
+enter "python"
+and go to python website
+====================================
+'''
+# choose which browser you want to start: ie, chrome, firefox, opera or edge
+driver=choosebrowser("ie")
+# go to google or wherever
+driver.get("https://www.google.rs/")
+WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.NAME, "q")))
+print("we're here")
+# enter "python"
+driver.find_element_by_name("q").send_keys("python")
+driver.find_element_by_name("q").send_keys(Keys.ENTER)
+print("typed it in and searched")
+# wait until results show up then click the first result with the link test "Welcome to Python.org"
+sleep(1)
+WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.LINK_TEXT, "Welcome to Python.org")))
+driver.find_element_by_link_text("Welcome to Python.org").click()
+print("link clicked")
+# wait until python logo shows up
+WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CLASS_NAME, "python-logo")))
+print("and we're there! yaaay")
+
